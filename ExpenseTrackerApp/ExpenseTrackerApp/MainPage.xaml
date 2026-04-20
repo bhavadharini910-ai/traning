@@ -1,0 +1,38 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpenseTrackerApp.MainPage">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Expense Tracker"
+               FontSize="28"
+               HorizontalOptions="Center"/>
+
+        <!-- TITLE -->
+        <Entry x:Name="titleEntry"
+               Placeholder="Enter Title"/>
+
+        <!-- AMOUNT -->
+        <Entry x:Name="amountEntry"
+               Placeholder="Enter Amount"
+               Keyboard="Numeric"/>
+
+        <!-- BUTTON -->
+        <Button Text="Add"
+                Clicked="OnAddClicked"/>
+
+        <!-- LIST -->
+        <CollectionView x:Name="expenseList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="5">
+                        <Label Text="{Binding Title}" FontSize="18"/>
+                        <Label Text="{Binding Amount}" FontSize="16"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
